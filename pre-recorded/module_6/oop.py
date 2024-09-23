@@ -57,10 +57,56 @@ class mother:
 
 class son(father, mother):
     #pass                       # if no activity needed this class so call only 'pass'
+
+    def addTwo_bySon(self):
+        s = self.x + self.a
+        print(s)
+
     def __init__(self):
         print('son constructor')  # if a constructor have in parents class and child class both so parents constructor not initialize in child class
         super().__init__()        # if you want uisng parent constructor in child class so using 'super()' method
 
 inheritance = son()
+inheritance.addTwo_bySon()
 inheritance.add()
 inheritance.mul()
+
+print('.......................protected, privet......................')
+#    we can use protected mathod 'parent' & 'child' class both
+#    we can't use privet mathod 'parent' & 'child' class both
+#    privet only use for own class
+class car:
+    _brand = 'Toyota'         # '_' means protected
+    __brand = 'BMW'           # '__' means privet
+
+    def display(self):
+        print(self.__brand)
+
+class brand(car):
+    def display(self):
+        print(self._brand)
+    
+obj = car()
+obj2 = brand()
+
+obj.display()
+obj2.display()
+
+print('.......................over Loading......................')
+class overLoading:
+    x = 10
+    y = 20
+
+    def addTwo(self, a=0, b=0):
+        print(self.x + self.y + a + b)
+
+    def chack(self, *a):
+        print(a)
+
+obj = overLoading()
+obj.addTwo()
+obj.addTwo(1)
+
+obj.chack(1)
+obj.chack(1, 2)
+obj.chack(1, 2, 3)
