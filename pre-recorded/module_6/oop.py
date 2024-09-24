@@ -86,6 +86,7 @@ class brand(car):
     def display(self):
         print(self._brand)
     
+    
 obj = car()
 obj2 = brand()
 
