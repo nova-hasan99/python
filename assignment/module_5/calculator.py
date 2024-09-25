@@ -47,5 +47,6 @@ while True:
                 print(f"Modulus => {x} % {y} = {calculate(x % y)}")
         break
 
+
     except ValueError:
         print("Error: Please input valid numbers.")
