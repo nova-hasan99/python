@@ -25,7 +25,6 @@ class bankAccount:
         print (f'Your Balance now {self.__balance}tk')
 
 balance = bankAccount()
-
 balance.deposit()
 balance.withdraw()
 balance.checkBalance()
