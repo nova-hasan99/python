@@ -13,7 +13,6 @@ data = [
     ['Ivy', 68000, 'Content Writer', 'Content', 'New York'],
     ['Jack', 95000, 'Chief Technology Officer', 'IT', 'San Francisco']
 ]
-
 with open('module_4/my.csv', 'w') as file:
     csv_file = csv.writer(file)
     csv_file.writerows(data)

@@ -54,8 +54,6 @@ import zipfile
 
 import shutil
 # shutil.make_archive('test.zip', 'zip', 'archive')b   # make folder to zip 
-
-
   
 # with open("example.text2", "w") as file:  # for over all content together
 #     file.write("Hello python")
