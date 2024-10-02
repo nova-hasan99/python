@@ -81,7 +81,6 @@ class car:
 
     def display(self):
         print(self.__brand)
-
 class brand(car):
     def display(self):
         print(self._brand)
