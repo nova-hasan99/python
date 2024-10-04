@@ -2,7 +2,6 @@
 class bankAccount:
     __balance = 100
 
-
     # deposit
     def deposit(self, amount = 0):
         if amount > 0:
