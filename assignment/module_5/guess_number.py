@@ -22,6 +22,5 @@ def guessNumber():
 
         except ValueError:
             print("Error: Please input a valid number.")
-    
 
 guessNumber()
