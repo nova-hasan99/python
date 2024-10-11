@@ -19,6 +19,7 @@ def guessNumber():
             else:
                 print(f"Congratulations! You've guessed the number in {attempts} attempts.")
                 break
+            
 
         except ValueError:
             print("Error: Please input a valid number.")

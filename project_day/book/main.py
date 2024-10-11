@@ -13,7 +13,6 @@ menu_text = """
     2. View All Book
     3. Delet Book
 """
-
 while True:
     print(menu_text)
     menu = input("Provide a number (0-3): ")
