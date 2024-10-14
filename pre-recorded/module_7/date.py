@@ -14,6 +14,7 @@ print(date.second)
 print(date.microsecond)
 
 print('.........................calculate date time........................')
+
 date1 = datetime.datetime(2025, 2, 5)
 date2 = datetime.datetime(2024, 2, 3)
 print(date1-date2)          # subtraction time

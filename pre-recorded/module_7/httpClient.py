@@ -12,6 +12,7 @@ data = json.loads(response.read())
 post = data[0]                            # specific data
 print(post['title'])
 
+
 #..........................................get with requests module
 # get_url = 'http://164.68.107.70:6060/api/v1/ReadProduct'
 # pro_res = requests.get(get_url)
