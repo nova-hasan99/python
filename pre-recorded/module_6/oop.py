@@ -106,7 +106,6 @@ obj = overLoading()
 obj.addTwo()
 obj.addTwo(1)
 
-
 obj.chack(1)
 obj.chack(1, 2)
 obj.chack(1, 2, 3)
