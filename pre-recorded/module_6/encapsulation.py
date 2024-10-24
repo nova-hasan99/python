@@ -2,6 +2,7 @@
 class bankAccount:
     __balance = 100
 
+
     # deposit
     def deposit(self, amount = 0):
         if amount > 0:
@@ -18,6 +19,7 @@ class bankAccount:
 
         else:
             print ('insufficient Balance :)')
+            
     # check balance
     def checkBalance(self):
         print (f'Your Balance now {self.__balance}tk')

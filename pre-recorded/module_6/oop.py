@@ -102,6 +102,7 @@ class overLoading:
     def chack(self, *a):
         print(a)
 
+
 obj = overLoading()
 obj.addTwo()
 obj.addTwo(1)
