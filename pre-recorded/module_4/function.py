@@ -60,7 +60,6 @@ import shutil
 #     print('success')
 
 
-
 import re             # for manage latter
 
 # Function to clean up multiple spaces and make case-insensitive search
