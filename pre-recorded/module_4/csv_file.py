@@ -1,6 +1,5 @@
 import csv
 
-
 data = [ 
     ['Name', 'Salary', 'Designation', 'Department', 'Location'],
     ['Alice', 70000, 'Software Engineer', 'IT', 'New York'],

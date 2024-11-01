@@ -38,6 +38,7 @@ class static_test:
 static_test.addTwo()
 
 print('.......................inheritance......................')
+
 class father:
     x = 10
     y = 20
