@@ -18,7 +18,6 @@ CREATE TABLE teachers (
     last_name VARCHAR(50),
     subject_id INT
 );
-
 CREATE TABLE classes (
     class_id INT AUTO_INCREMENT PRIMARY KEY,
     class_name VARCHAR(50)
