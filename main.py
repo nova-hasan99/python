@@ -6,7 +6,6 @@ def multiplection(n):
 n = input("Enter number: ")
 n = int(n)
 
-
 while n != 0:
     multiplection(n)
     print(" ")
