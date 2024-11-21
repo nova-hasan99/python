@@ -12,6 +12,7 @@ while n != 0:
     n = input("Enter number: ")
     n = int(n)
 
+
 # for loop
 subject = {'Phy': 90, 'En': 85, 'Math': 95}
 for subject, marks in subject.items():
