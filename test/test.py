@@ -14,7 +14,6 @@ class myClass:
         z = self.x + self.y + v
         print("const", z)
 
-
 obj = myClass(6)
 obj.addTwo(10, 5)
 obj.sum()
