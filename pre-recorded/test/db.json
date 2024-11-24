@@ -1,0 +1,26 @@
+{
+  "persons": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "age": 25
+    },
+    {
+      "id": 1,
+      "name": "Jen Doe",
+      "age": 21
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "mango",
+      "price": 25
+    },
+    {
+      "id": 1,
+      "name": "Banana",
+      "price": 21
+    }
+  ]
+}
