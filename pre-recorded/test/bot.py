@@ -1,72 +1,74 @@
 import time
 import random
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import TimeoutException, NoSuchElementException, WebDriverException
-import undetected_chromedriver as uc
 
 def setup_driver():
-    options = Options()
+    options = webdriver.ChromeOptions()
     options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--headless")  # Enable headless mode
-    options.add_argument("--disable-gpu")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--window-size=1920,1080")
-    options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.3")
-    
-    driver = uc.Chrome(options=options)
+    options.add_argument("--start-maximized")
+    driver = webdriver.Chrome(options=options)
     return driver
 
-def auto_submit_form(driver):
+def solve_math_challenge(driver):
+    """Extract and solve the dynamic math equation."""
     try:
-        target_url = "https://www.paxifico.com/bot-protection/"
-        driver.get(target_url)
-        print(f"Navigated to {target_url}")
-
-        form = WebDriverWait(driver, 15).until(
-            EC.presence_of_element_located((By.TAG_NAME, "form"))
+        # Locate the math equation on the page
+        equation_element = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "sum-equation"))
         )
-        print("Form loaded successfully.")
+        equation = equation_element.text.strip()
+        print(f"Found math equation: {equation}")
 
-        inputs = form.find_elements(By.TAG_NAME, "input")
-        form_data = {"name": "John Doe", "email": "johndoe@example.com"}
+        # Clean and parse the equation
+        equation = equation.replace("=", "").strip()  # Remove the trailing '='
+        if "+" in equation:
+            num1, num2 = map(int, equation.split("+"))
+            solution = num1 + num2
+        elif "-" in equation:
+            num1, num2 = map(int, equation.split("-"))
+            solution = num1 - num2
+        else:
+            raise ValueError("Unsupported equation format")
 
-        for input_field in inputs:
-            field_name = input_field.get_attribute("name")
-            if field_name in form_data:
-                input_field.clear()  # Clear any pre-filled values
-                input_field.click()
-                time.sleep(random.uniform(0.5, 1.5))  # Simulate user typing
-                input_field.send_keys(form_data[field_name])
-                print(f"Filled '{field_name}' with '{form_data[field_name]}'.")
-        
-        submit_button = form.find_element(By.TAG_NAME, "button")
+        # Fill in the solution
+        answer_field = driver.find_element(By.ID, "math_sum-equation_Number")
+        answer_field.clear()
+        answer_field.send_keys(str(solution))
+        print(f"Solved math equation: {equation} = {solution}")
+    except Exception as e:
+        print(f"Error solving math challenge: {e}")
+
+def simulate_user_interaction(driver, field_id, value):
+    """Simulate human-like interaction to fill form fields."""
+    field = driver.find_element(By.ID, field_id)
+    for char in value:
+        field.send_keys(char)
+        time.sleep(random.uniform(0.1, 0.4))  # Simulate typing speed
+
+def main():
+    driver = setup_driver()
+    driver.get("https://pyz88406.infusionsoft.com/app/form/process/dad413f143eea1082a90c180f082a30b")  # Your form URL
+
+    try:
+        # Simulate filling form fields
+        simulate_user_interaction(driver, "inf_field_FirstName", "John")
+        simulate_user_interaction(driver, "inf_field_LastName", "Doe")
+        simulate_user_interaction(driver, "inf_field_Email", "test@example.com")
+        simulate_user_interaction(driver, "inf_field_Phone1", "+123456789")
+
+        # Solve the math challenge
+        solve_math_challenge(driver)
+
+        # Submit the form
+        submit_button = driver.find_element(By.ID, "btn-d")
         submit_button.click()
         print("Form submitted successfully.")
-
-        # Add random delays to mimic human interaction
-        time.sleep(random.uniform(3, 5))
-
-    except TimeoutException:
-        print("Error: Timeout while loading the form.")
-    except NoSuchElementException as e:
-        print(f"Error: Required form element not found. Details: {e}")
-    except WebDriverException as e:
-        print(f"WebDriver error occurred: {e}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
     finally:
-        cleanup_driver(driver)
-
-def cleanup_driver(driver):
-    try:
+        time.sleep(5)
         driver.quit()
-        print("WebDriver closed.")
-    except Exception as e:
-        print(f"Error during WebDriver cleanup: {e}")
 
 if __name__ == "__main__":
-    driver = setup_driver()
-    auto_submit_form(driver)
+    main()
