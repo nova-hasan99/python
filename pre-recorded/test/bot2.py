@@ -1,7 +1,7 @@
 import requests
 
 def submit_form():
-    url = "https://pyz88406.infusionsoft.com/app/form/process/dad413f143eea1082a90c180f082a30b"  # Form action URL
+    url = "https://paxifico.com/wp-json/custom-api/v1/get-form-action"  # Form action URL
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
@@ -13,7 +13,7 @@ def submit_form():
         "infusionsoft_version": "1.70.0.736468",
         "inf_field_FirstName": "Test",
         "inf_field_LastName": "User",
-        "inf_field_Email": "test@example.com",
+        "inf_field_Email": "bot2@example.com",
         "inf_field_Phone1": "+123456789",
         "math_sum-equation_Number": "15",  # Replace with the correct solution if a math challenge is required
         "honeypot": ""  # Honeypot field must be empty for successful submission

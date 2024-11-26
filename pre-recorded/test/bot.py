@@ -50,7 +50,7 @@ def simulate_user_interaction(driver, field_id, value):
 
 def main():
     driver = setup_driver()
-    driver.get("https://pyz88406.infusionsoft.com/app/form/process/dad413f143eea1082a90c180f082a30b")  # Your form URL
+    driver.get("https://www.paxifico.com/bot-protection/")  # Your form URL
 
     try:
         # Simulate filling form fields
