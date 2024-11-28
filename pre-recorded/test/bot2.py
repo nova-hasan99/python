@@ -19,7 +19,6 @@ def submit_form():
         "honeypot": ""  # Honeypot field must be empty for successful submission
     }
 
-
     try:
         # Submit the form using POST request
         response = requests.post(url, headers=headers, data=data)
