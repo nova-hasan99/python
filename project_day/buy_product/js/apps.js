@@ -2,15 +2,17 @@ const buttons = document.getElementsByTagName("button");
 
 function updateTotal() {
   const basePrice = 1299;
+
   const memoryCost = parseInt(
-    document.getElementById("memory-cost").textContent || "0"
+    document.getElementById("memory-cost").textContent
   );
   const storageCost = parseInt(
-    document.getElementById("storage-cost").textContent || "0"
+    document.getElementById("storage-cost").textContent
   );
   const deliveryCost = parseInt(
-    document.getElementById("delivery-cost").textContent || "0"
+    document.getElementById("delivery-cost").textContent
   );
+
   return basePrice + memoryCost + storageCost + deliveryCost;
 }
 
@@ -30,8 +32,8 @@ for (let i = 0; i < buttons.length; i++) {
       customizationPrice("delivery-cost", 0);
     } else if (buttons[i].id === "early-delivery") {
       customizationPrice("delivery-cost", 20);
-    } else if (buttons[i].id === "apply-btn") {
-      promocode();
+    } else {
+      promoCode();
     }
   });
 }
@@ -39,22 +41,10 @@ for (let i = 0; i < buttons.length; i++) {
 function customizationPrice(id, cost) {
   const now = document.getElementById(id);
   now.textContent = cost;
+
   const totalCost = updateTotal();
   const totalPrice = document.getElementById("total-price");
   totalPrice.textContent = totalCost;
 }
 
-function promocode() {
-  const promoInput = document.getElementById("input-field").value;
-  const normalizedPromoInput = promoInput.toLowerCase();
-  const totalPriceElement = document.getElementById("user-payment");
-  let totalCost = updateTotal();
-
-  if (normalizedPromoInput === "ostad") {
-    totalCost *= 0.9; // Apply 10% discount
-    totalPriceElement.textContent = totalCost.toFixed(2);
-    alert("Promo code applied successfully! 10% discount granted.");
-  } else {
-    alert("Invalid promo code. Please try again.");
-  }
-}
+function promoCode() {}
