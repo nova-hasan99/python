@@ -6,6 +6,10 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hi Lorem ipsum dolor sit amet.</h1>
+    <ul>
+      {% for post in posts %}
+      <li>{{ post.title }}</li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
