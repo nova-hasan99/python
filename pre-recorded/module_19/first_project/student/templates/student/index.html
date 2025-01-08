@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Name: {{ name }}</h1>
+    <h2>Age: {{ age }}</h2>
+    {% if age > 25 %}
+    <p>May you be eligible for a driver's license</p>
+    {% elif age > 20 %}
+    <p>May you own your license</p>
+    {% else %}
+    <p>You are not eligible for a driver's license</p>
+    {% endif %}
+
+    <table border="1">
+      <tr>
+        <th>Id</th>
+        <th>Subject</th>
+        <th>Marks</th>
+        <th>Gread</th>
+      </tr>
+      {% for subject in marks %}
+      <tr>
+        <td> {{ subject.id }} </td>
+        <td> {{ subject.subject }} </td>
+        <td> {{ subject.marks }} </td>
+        <td>
+        {% if subject.marks >= 80 %}
+        A+
+        {% elif subject.marks >= 70 %}
+        A
+        {% elif subject.marks >= 60 %}
+        A-
+        {% elif subject.marks >= 50 %}
+        B
+        {% elif subject.marks >= 40 %}
+        C
+        {% elif subject.marks >= 33 %}
+        D
+        {% else %}
+        F
+        {% endif %}
+      </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

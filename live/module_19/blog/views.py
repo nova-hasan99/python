@@ -21,6 +21,7 @@ def post_list(request):
     return render(request, 'post_list.html', context)
 
 def post_detail(request, post_id):
-    post = Post.objects.get(id=post_id)
-    result = f"{post.title} <br /> {post.content}"
-    return HttpResponse(result)
+    context = {
+        'post' : Post.objects.get(id=post_id)
+    }
+    return render(request, 'post_details.html', context)

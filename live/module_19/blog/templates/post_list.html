@@ -8,7 +8,7 @@
   <body>
     <ul>
       {% for post in posts %}
-      <li>{{ post.title }}</li>
+      <li>{{ post.title }} - {{ post.created_at }}</li>
       {% endfor %}
     </ul>
   </body>
