@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{%load crispy_forms_tags %} 
+{% block title %} Create/Update {% endblock title %}
+
+{% block content %}
+
+  <!-- ..................this function use for only when using html form method -->
+
+    <!-- <form class="container" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h1>Student Form</h1>
+      <div class="mb-3">
+        <label for="inputName" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" id="inputName" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" required>
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="inputPhone" class="form-label">Phone Number</label>
+        <input type="tel" name="phone" class="form-control" id="inputPhone" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+      </div>
+
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Upload Image</label>
+        <input class="form-control" type="file" name="photo" id="formFile" required>
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" name="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form> -->
+
+    <!-- ...................thsi function using for only using django forms method & its advanced -->
+
+    {% if edit %}
+      <h1 class="container py-3">Edit Student</h1>
+    {% else %}
+      <h1 class="container py-3">Create Student</h1>
+    {% endif %}
+    <form class="container" method="POST" enctype="multipart/form-data" novalidate>
+      {% csrf_token %}
+      {{ form | crispy }}
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  
+{% endblock content %}
