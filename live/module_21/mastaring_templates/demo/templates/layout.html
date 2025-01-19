@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Dashboard - Home {% endblock title %}</title>
+    <!-- <script src="//cdn.tailwindcss.com"></script> -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+  </head>
+  <body class="bg-gray-100">
+    <div class="min-h-screen flex flex-col">
+      <!-- Top Navigation Bar -->
+      
+      {% include "components/header.html" with app_name="CRM Dashboard" %}
+
+      <div class="flex flex-1">
+        <!-- Sidebar -->
+        
+        {% include "components/nav.html" %}
+
+        <!-- Main Content -->
+        {% block content %}
+          
+        {% endblock content %}
+      </div>
+
+      <!-- Footer -->
+      {% include "components/footer.html" %}
+    </div>
+    <script src="{% static "js/script.js" %}"></script>
+  </body>
+</html>

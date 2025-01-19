@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loop</title>
+</head>
+<body>
+    <h1>Total Members {{ parsons|length }}</h1>
+    {% if parsons|length < 5 %}
+        <h2>We need more members</h2>
+        {% else %}
+        <h2>More members are not allowed</h2>
+    {% endif %}
+    <ul>
+        {% for parson, age in parsons %}
+          <li>{{ parson|upper }} - {{ age }}</li>
+        {% endfor %}
+    </ul>
+    <div>
+        <h1>Today tempareture is {{ temp }} degree celsius</h1>
+        {% if temp < 20 %}
+          <h3>Its rellay cold tempareture</h3>
+          {% elif temp < 30 %}
+          <h3>Its nice tempareture</h3>
+          {% elif temp < 40 %}
+          <h3>Its hot tempareture</h3>
+          {% else %}
+          <h3>Its really very hot tempareture</h3>
+        {% endif %}
+    </div>
+    <div>
+        <h2>The {{ temp }} is {% if temp|divisibleby:2 %} Even {% else %} Odd {% endif %}</h2>
+    </div>
+</body>
+</html>
