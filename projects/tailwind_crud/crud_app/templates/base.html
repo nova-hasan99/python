@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="{% static 'src/output.css' %}">
 </head>
 <body>
-    <h1 class="underline text-lg text-purple-300 bg-gray-500">Hello world</h1>
+    <div class="container mx-auto">
+        <div class="p-6 flex flex-col items-center">
+            
+            {% block content %}
+              
+            {% endblock content %}
+
+        </div>
+    </div>
 </body>
 </html>

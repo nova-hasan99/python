@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+<h1 class="text-3xl font-bold text-purple-600">Student Data</h1>
+<h1 class="text-3xl font-bold text-gray-600">No Data Available</h1>
+<table class="table-auto border-collapse border border-gray-300 m-6">
+    <thead>
+        <tr>
+            <th class="border border-gray-300 px-4 py-2">Name</th>
+            <th class="border border-gray-300 px-4 py-2">Roll</th>
+            <th class="border border-gray-300 px-4 py-2">Department</th>
+            <th class="border border-gray-300 px-4 py-2">Admission Date</th>
+            <th class="border border-gray-300 px-4 py-2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2">Hasan</td>
+            <td class="border border-gray-300 px-4 py-2">3545</td>
+            <td class="border border-gray-300 px-4 py-2">EEE</td>
+            <td class="border border-gray-300 px-4 py-2">25-25-25</td>
+            <td class="border border-gray-300 px-4 py-2">
+                <div class="flex justify-between gap-3">
+                    <button class="font-bold hover:bg-green-600 px-3 py-2 bg-green-500 rounded-lg text-gray-100">Edit</button>
+                    <button class="font-bold hover:bg-red-800 px-3 py-2 bg-red-700 rounded-lg text-gray-100">Delete</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock content %}

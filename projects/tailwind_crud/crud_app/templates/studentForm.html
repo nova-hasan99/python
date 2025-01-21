@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+<h1 class="text-3xl font-bold text-purple-600">Registration Data</h1>
+
+<div class="m-6">
+    <form action="#" method="POST" class="grid grid-cols-2 gap-4">
+        <!-- Student Name -->
+        <div>
+            <label for="name" class="block text-sm font-medium text-gray-700">Student Name</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500"
+                placeholder="Enter student name"
+                required
+            />
+        </div>
+
+        <!-- Roll -->
+        <div>
+            <label for="roll" class="block text-sm font-medium text-gray-700">Roll</label>
+            <input
+                type="number"
+                id="roll"
+                name="roll"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500"
+                placeholder="Enter roll number"
+                required
+            />
+        </div>
+
+        <!-- Department -->
+        <div>
+            <label for="department" class="block text-sm font-medium text-gray-700">Department</label>
+            <select
+                id="department"
+                name="department"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500"
+                required
+            >
+                <option value="" disabled selected>Select department</option>
+                <option value="EEE">EEE</option>
+                <option value="CSE">CSE</option>
+                <option value="BBA">BBA</option>
+            </select>
+        </div>
+
+        <!-- Student Image -->
+        <div>
+            <label for="student_image" class="block text-sm font-medium text-gray-700">Student Image</label>
+            <input
+                type="file"
+                id="student_image"
+                name="student_image"
+                accept="image/*"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500"
+                required
+            />
+        </div>
+
+
+        <!-- Submit Button -->
+        <div class="col-span-2">
+            <button
+                type="submit"
+                class="w-full bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+            >
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+
+
+
+
+{% endblock content %}
