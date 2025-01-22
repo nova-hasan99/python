@@ -8,7 +8,33 @@
     <link rel="stylesheet" href="{% static 'src/output.css' %}">
 </head>
 <body>
+
+    <div class="shadow-2xl rounded-b-xl bg-purple-300 w-full h-[60px] flex items-center">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold">CRUD APP</div>
+            <div>
+                <ul class="flex justify-between gap-[20px]">
+                    <li>
+                        <a class="font-semibold hover:text-gray-700" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li>
+                        <a class="font-semibold hover:text-gray-700" href="{% url 'form' %}">Registration</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
     <div class="container mx-auto">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+       {% endif %}
+       
         <div class="p-6 flex flex-col items-center">
             
             {% block content %}
