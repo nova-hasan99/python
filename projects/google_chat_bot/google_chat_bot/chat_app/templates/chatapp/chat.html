@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .chat-box {
+            max-width: 600px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        .user {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .ai {
+            font-weight: bold;
+            color: #28A745;
+        }
+    </style>
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById("user-input").value;
+            const chatBox = document.getElementById("chat-box");
+            if (!userInput.trim()) {
+                alert("Please enter a message!");
+                return;
+            }
+
+            // Append user message to chat box
+            chatBox.innerHTML += `<div class="message user">You: ${userInput}</div>`;
+
+            // Clear the input field
+            document.getElementById("user-input").value = "";
+
+            // Send message to the server
+            const response = await fetch("", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": getCookie("csrftoken")
+                },
+                body: `message=${encodeURIComponent(userInput)}`
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                chatBox.innerHTML += `<div class="message ai">AI: ${data.response}</div>`;
+            } else {
+                alert(data.error || "Something went wrong!");
+            }
+        }
+
+        // Get CSRF token
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== "") {
+                const cookies = document.cookie.split(";");
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === `${name}=`) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+</head>
+<body>
+    <div class="chat-box" id="chat-box">
+        <div class="message ai">AI: Great to meet you. What would you like to know?</div>
+    </div>
+    <div style="text-align: center; margin-top: 10px;">
+        <input type="text" id="user-input" placeholder="Type your message here..." style="width: 80%;" />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</body>
+</html>
