@@ -6,6 +6,8 @@ from . import models
 from . import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required    # for function view
+from django.contrib.auth.mixins import LoginRequiredMixin    # for class view
 
 #..............................................................................
 def home(request):  # ............................functional view
@@ -43,6 +45,7 @@ class StudentList(ListView):  # ..................class view
 
 #.................................thsi function using for only using django forms method & its advanced
 
+@login_required
 def create_student(request):  # ......................functional create view
     if request.method == 'POST':
         form = forms.StudentForm(request.POST, request.FILES)
@@ -54,16 +57,20 @@ def create_student(request):  # ......................functional create view
         form = forms.StudentForm()
     return render(request, 'student/create_edit_student.html', {'form' : form})
 
-class CreateStudent(CreateView):         #.....................class create virw
+class CreateStudent(LoginRequiredMixin, CreateView):         #.....................class create virw
     form_class = forms.StudentForm
     success_url = reverse_lazy('home')
     template_name = 'student/create_edit_student.html'
     def form_valid(self, form):
+        student = form.save(commit=False)     # submit data but not save
+        student.user = self.request.user      # remove others user name from form data and append self user name
+        student.save()                        # finally save all data
         messages.add_message(self.request, messages.SUCCESS, 'Student create successfully.')
         return super().form_valid(form)
 
 #......................................................................................................
 
+@login_required
 def update_student(request, id):              # ...............functional update view
     student = models.Student.objects.get(id=id)
     form = forms.StudentForm(instance=student)
@@ -75,7 +82,7 @@ def update_student(request, id):              # ...............functional update
             return redirect('home')
     return render(request, 'student/create_edit_student.html', {'form' : form, 'edit' : True})
 
-class UpdateStudentData(UpdateView):   # ...............class update view
+class UpdateStudentData(LoginRequiredMixin, UpdateView):   # ...............class update view
     form_class = forms.StudentForm
     model = models.Student
     template_name = 'student/create_edit_student.html'
@@ -90,13 +97,14 @@ class UpdateStudentData(UpdateView):   # ...............class update view
         return context
 #......................................................................................................
 
+@login_required
 def delete_student(request, id):                  # ...............functional delete view
     student = models.Student.objects.get(id=id)
     student.delete()
     messages.add_message(request, messages.WARNING, 'Student info delete successfully.')
     return redirect('home')
 
-class DeleteStudent(DeleteView):
+class DeleteStudent(LoginRequiredMixin, DeleteView):
     model = models.Student
     pk_url_kwarg = 'id'
     success_url = reverse_lazy('home')
@@ -139,3 +147,8 @@ def user_logout(request):
     logout(request)
     messages.add_message(request, messages.SUCCESS, 'Logout Successfully')
     return redirect('home')
+
+@login_required
+def user_profile(request):
+    students = models.Student.objects.filter(user = request.user)
+    return render(request, 'student/profile.html', {'students' : students})

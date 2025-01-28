@@ -37,7 +37,7 @@
           </ul>
           {% if user.is_authenticated %}
             <div class="d-flex">
-              <h4 class="mx-2">{{ user.username }}</h4>
+              <a href="{% url 'user_profile' %}" class="mx-2 font-bold">{{ user.username }}</a>
               <a href="{% url 'user_logout' %}" class="btn btn-primary mx-3" type="submit">Logout</a>
             </div>
           {% else %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% block title %} Home {% endblock title %}
+{% block title %} Profile {% endblock title %}
 {% block content %}
-<h1 class="container py-3">All Students List</h1>
+<h1 class="container underline py-3">Profile</h1>
 <div class="container d-flex flex-wrap justify-content-between">
   {% for student in students %}
   <div class="">
@@ -13,6 +13,8 @@
           <p>{{ student.email }}</p>
           <p>{{ student.phone }}</p>
         </p>
+        <a href="{% url 'update_student' id=student.id %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'delete_student' id=student.id %}" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>
