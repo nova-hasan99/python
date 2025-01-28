@@ -4,6 +4,8 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from . import models
 from . import forms
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
 
 #..............................................................................
 def home(request):  # ............................functional view
@@ -102,4 +104,38 @@ class DeleteStudent(DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.add_message(request, messages.WARNING, 'Student info delete successfully.')
         return super().delete(self, request, *args, **kwargs)
+    
+def signup(request):
+    if request.method == 'POST':
+        form = forms.SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Registration Complete')
+            return redirect('home')
+    else:
+        form = forms.SignUpForm()
+    return render(request, 'student/auto_form.html', {'form' : form})
 
+def user_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data = request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username = username, password = password)
+
+            if user is not None:
+                login(request, user)
+                messages.add_message(request, messages.SUCCESS, 'User Login Successfully')
+                return redirect('home')
+            else:
+                messages.add_message(request, messages.WARNING, 'Invalid Credentials')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'student/auto_form.html', {'form' : form, 'login' : True})
+
+def user_logout(request):
+    logout(request)
+    messages.add_message(request, messages.SUCCESS, 'Logout Successfully')
+    return redirect('home')

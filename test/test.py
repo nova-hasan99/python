@@ -1,64 +1,45 @@
-#........................................one to one conversation
-# import google.generativeai as genai
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
+import time
 
-# # Configure your Google API Key
-# genai.configure(api_key="AIzaSyBcX-tIfvxHUEvbMn3QMIWWvP1fKs5fVDw")
+# ChromeDriver এর পাথ নির্ধারণ করুন
+CHROMEDRIVER_PATH = './chromedriver-win64/chromedriver.exe'
 
-# # Function to handle user input and generate a response
-# def main():
-#     print("Welcome to the AI Text Generator!")
-#     while True:
-#         user_input = input("\nEnter your prompt (or type 'exit' to quit): ")
-#         if user_input.lower() == 'exit':
-#             print("Goodbye!")
-#             break
-        
-#         # Call the Google Generative AI API
-#         model = genai.GenerativeModel("gemini-1.5-flash")
-#         response = model.generate_content(user_input)
-        
-#         # Print the generated response
-#         print(f"\nAI Response:\n{response.text}")
+# আপনার ফেসবুক লগইন তথ্য দিন
+FACEBOOK_EMAIL = ''  # আপনার ফেসবুক ইমেল
+FACEBOOK_PASSWORD = ''       # আপনার ফেসবুক পাসওয়ার্ড
 
-# if __name__ == "__main__":
-#     main()
+def login_facebook():
+    # Setup ChromeDriver
+    service = Service(CHROMEDRIVER_PATH)
+    driver = webdriver.Chrome(service=service)
 
+    # Open Facebook login page
+    driver.get('https://www.facebook.com')
+    print("Facebook login page loaded.")
 
+    # Enter email address
+    email_input = driver.find_element(By.ID, 'email')  # Email field
+    email_input.send_keys(FACEBOOK_EMAIL)
 
+    # Enter password
+    password_input = driver.find_element(By.ID, 'pass')  # Password field
+    password_input.send_keys(FACEBOOK_PASSWORD)
 
+    # Press Login button
+    login_button = driver.find_element(By.NAME, 'login')  # Login button
+    login_button.click()
 
-import google.generativeai as genai
+    # Wait for some time to let the page load
+    time.sleep(5)
 
-# Configure your Google API Key
-genai.configure(api_key="AIzaSyBcX-tIfvxHUEvbMn3QMIWWvP1fKs5fVDw")
+    # Print current URL to verify login success
+    print("Logged in. Current URL:", driver.current_url)
 
-# Start a chat session
-def main():
-    print("Welcome to the AI Chat!")
-    print("Type your message to the AI or type 'exit' to quit.")
+    # Close browser (Optional)
+    # driver.quit()
 
-    # Initialize the chat history
-    model = genai.GenerativeModel("gemini-1.5-flash")
-    chat = model.start_chat(
-        history=[
-            {"role": "user", "parts": "Hello"},
-            {"role": "model", "parts": "Great to meet you. What would you like to know?"},
-        ]
-    )
-
-    while True:
-        # User input
-        user_message = input("\nYou: ")
-        if user_message.lower() == 'exit':
-            print("Goodbye!")
-            break
-
-        # Send message to the chat
-        response = chat.send_message(user_message)
-
-        # Print the response from the AI
-        print(f"AI: {response.text}")
-
-if __name__ == "__main__":
-    main()
-
+if __name__ == '__main__':
+    login_facebook()

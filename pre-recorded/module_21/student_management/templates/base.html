@@ -35,10 +35,17 @@
             </li>
             
           </ul>
+          {% if user.is_authenticated %}
+            <div class="d-flex">
+              <h4 class="mx-2">{{ user.username }}</h4>
+              <a href="{% url 'user_logout' %}" class="btn btn-primary mx-3" type="submit">Logout</a>
+            </div>
+          {% else %}
           <div class="d-flex">
-            <button class="btn btn-success mx-3" type="submit">Sign Up</button>
-            <button class="btn btn-warning mx-3" type="submit">Login</button>
+            <a href="{% url 'signup' %}" class="btn btn-primary mx-3" type="submit">Sign Up</a>
+            <a href="{% url 'user_login' %}" class="btn btn-warning mx-3" type="submit">Login</a>
           </div>
+          {% endif %}
         </div>
       </div>
     </nav>

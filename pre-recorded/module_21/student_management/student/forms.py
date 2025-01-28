@@ -15,3 +15,8 @@ class StudentForm(forms.ModelForm):
         help_texts = {
             'email' : "Email will be confidential"
         }
+
+class SignUpForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
