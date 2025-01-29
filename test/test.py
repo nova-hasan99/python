@@ -1,45 +1,17 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
-import time
+import matplotlib.pyplot as plt
 
-# ChromeDriver এর পাথ নির্ধারণ করুন
-CHROMEDRIVER_PATH = './chromedriver-win64/chromedriver.exe'
+# Dummy data: Field Current (If) in Amperes and Generated Voltage (E) in Volts
+field_current = [0.20, 0.22, 0.24, 0.26, 0.28, 0.30, 0.33]
+generated_voltage = [182, 187, 192, 196, 200, 204, 207]
 
-# আপনার ফেসবুক লগইন তথ্য দিন
-FACEBOOK_EMAIL = ''  # আপনার ফেসবুক ইমেল
-FACEBOOK_PASSWORD = ''       # আপনার ফেসবুক পাসওয়ার্ড
+# Plot the graph
+plt.figure(figsize=(8,5))
+plt.plot(field_current, generated_voltage, marker='o', linestyle='-', color='b', label='No-Load Characteristic')
 
-def login_facebook():
-    # Setup ChromeDriver
-    service = Service(CHROMEDRIVER_PATH)
-    driver = webdriver.Chrome(service=service)
-
-    # Open Facebook login page
-    driver.get('https://www.facebook.com')
-    print("Facebook login page loaded.")
-
-    # Enter email address
-    email_input = driver.find_element(By.ID, 'email')  # Email field
-    email_input.send_keys(FACEBOOK_EMAIL)
-
-    # Enter password
-    password_input = driver.find_element(By.ID, 'pass')  # Password field
-    password_input.send_keys(FACEBOOK_PASSWORD)
-
-    # Press Login button
-    login_button = driver.find_element(By.NAME, 'login')  # Login button
-    login_button.click()
-
-    # Wait for some time to let the page load
-    time.sleep(5)
-
-    # Print current URL to verify login success
-    print("Logged in. Current URL:", driver.current_url)
-
-    # Close browser (Optional)
-    # driver.quit()
-
-if __name__ == '__main__':
-    login_facebook()
+# Labels and Title
+plt.xlabel('Field Current (If) [A]', fontsize=12)
+plt.ylabel('Generated Voltage (E) [V]', fontsize=12)
+plt.title('No-Load Characteristics of a DC Shunt Generator', fontsize=14)
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.legend()
+plt.show()
