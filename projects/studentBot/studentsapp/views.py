@@ -12,14 +12,51 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 
 
-import openai
+import google.generativeai as genai
 import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Student
+from django.conf import settings
+from django.db import connection
+import requests
+from bs4 import BeautifulSoup
 
 
+genai.configure(api_key=settings.GEMINI_API_KEY)
+model = genai.GenerativeModel("gemini-1.5-flash")
 
+# ✅ সকল টেবিল থেকে ডাটা সংগ্রহ করুন
+def fetch_database_info():
+    data = {}
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SHOW TABLES;")
+            tables = cursor.fetchall()
+
+            for table in tables:
+                table_name = table[0]
+                cursor.execute(f"SELECT * FROM `{table_name}` LIMIT 5;")  # প্রথম ৫টি রো দেখানো
+                rows = cursor.fetchall()
+                column_names = [desc[0] for desc in cursor.description]
+                data[table_name] = [dict(zip(column_names, row)) for row in rows]
+
+    except Exception as e:
+        return {"error": f"Database Fetch Error: {str(e)}"}
+
+    return data
+
+# ✅ ওয়েবসাইট কন্টেন্ট লাইভভাবে পড়ুন
+def fetch_website_content():
+    url = "http://127.0.0.1:8000"  # আপনার সাইটের URL দিন
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.text, "html.parser")
+            text = soup.get_text(separator=" ")
+            return text[:3000]  # শুধু প্রথম 3000 ক্যারেক্টার পাঠাবো
+        return "Could not fetch website content."
+    except Exception as e:
+        return f"Error fetching website: {str(e)}"
 
 @csrf_exempt
 def chatbot(request):
@@ -31,17 +68,26 @@ def chatbot(request):
             return JsonResponse({"error": "No question provided"}, status=400)
 
         try:
-            # OpenAI API Call (New Syntax)
-            response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "You are a chatbot for StudentBot website."},
-                    {"role": "user", "content": user_question}
-                ]
-            )
+            # ✅ ডাটাবেজ ও ওয়েবসাইটের তথ্য সংগ্রহ করুন
+            database_data = fetch_database_info()
+            website_data = fetch_website_content()
 
-            answer = response.choices[0].message.content
-            return JsonResponse({"answer": answer})
+            # ✅ Gemini API-তে ডাটাবেজ ও ওয়েব তথ্য পাঠানো
+            chat = model.start_chat(history=[])
+            full_prompt = f"""
+            You are a smart chatbot that answers questions dynamically using database information and live website content.
+
+            🔹 Database Info:
+            {json.dumps(database_data, indent=2)}
+
+            🔹 Website Content:
+            {website_data}
+
+            User Question: {user_question}
+            """
+
+            response = chat.send_message(full_prompt)
+            return JsonResponse({"answer": response.text})
 
         except Exception as e:
             return JsonResponse({"error": f"API Error: {str(e)}"}, status=500)
