@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from . import models
 from django.db.models import Prefetch
+
 
 def home(request):
     car_models = models.CarModel.objects.select_related('car_company__ceo').prefetch_related(Prefetch('fueltype_set'))
