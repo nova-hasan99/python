@@ -1,0 +1,83 @@
+{% extends "todoapp/base.html" %}
+
+{% block title %}Registration{% endblock title %}
+
+{% block content %}
+
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-[600px]">
+        <h2 class="text-3xl font-semibold text-gray-800 text-center mb-6">Register</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            <!-- Username Field -->
+            <div class="mb-4">
+                <label for="{{ form.username.id_for_label }}" class="block text-gray-600 font-medium mb-1">Username</label>
+                {% comment %} <input type="text" id="username" name="username"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    placeholder="Enter your username" required> {% endcomment %}
+                {{ form.username }}
+
+                {% if form.username.errors %}
+                    <p class="text-sm text-red-500"> {{ form.username.errors.0 }} </p>
+                {% endif %}
+            </div>
+
+            <!-- Email Field -->
+            <div class="mb-4">
+                <label for="{{ form.email.id_for_label }}" class="block text-gray-600 font-medium mb-1">Email</label>
+                {% comment %} <input type="email" id="email" name="email"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    placeholder="Enter your email" required> {% endcomment %}
+
+                {{ form.email }}
+                
+                {% if form.email.errors %}
+                    <p class="text-sm text-red-500"> {{ form.email.errors.0 }} </p>
+                {% endif %}
+            </div>
+
+            <!-- Password1 Field -->
+            <div class="mb-4">
+                <label for="{{ form.password1.id_for_label }}" class="block text-gray-600 font-medium mb-1">Password</label>
+                {% comment %} <input type="password" id="password1" name="password1"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    placeholder="Enter your password" required> {% endcomment %}
+                {{ form.password1 }}
+                
+                {% if form.password1.errors %}
+                    <p class="text-sm text-red-500"> {{ form.password1.errors.0 }} </p>
+                {% endif %}
+            </div>
+
+            <!-- Password2 Field -->
+            <div class="mb-4">
+                <label for="{{ form.password2.id_for_label }}" class="block text-gray-600 font-medium mb-1">Confirm Password</label>
+                {% comment %} <input type="password" id="password2" name="password2"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    placeholder="Confirm your password" required> {% endcomment %}
+
+                {{ form.password2 }}
+            
+                {% if form.password2.errors %}
+                    <p class="text-sm text-red-500"> {{ form.password2.errors.0 }} </p>
+                {% endif %}
+            </div>
+
+            <!-- Register Button -->
+            <button type="submit"
+                class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-300">
+                Register
+            </button>
+
+            <!-- Login Link -->
+            <p class="text-center text-gray-500 text-sm mt-4">
+                Already have an account? <a href="{% url "home" %}" class="text-blue-500 hover:underline">Login</a>
+            </p>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock content %}
