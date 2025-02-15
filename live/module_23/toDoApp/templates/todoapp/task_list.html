@@ -1,0 +1,77 @@
+{% extends "todoapp/base.html" %}
+
+{% block title %} Task List {% endblock title %}
+
+{% block content %}
+
+<div class="max-w-8xl mx-auto bg-white shadow-md rounded-lg p-6">
+    <div class="flex justify-between items-center mb-4">
+        <h1 class="text-2xl font-bold text-gray-700">Tasks</h1>
+        <div>
+            <a href="{% url 'create_task' %}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm">Create Task</a>
+            <form action="{% url 'logout' %}" method="POST" class="inline">
+                {% csrf_token %}
+                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm">
+                    Logout
+                </button>
+            </form>
+            
+        </div>
+    </div>
+
+    <div class="overflow-x-auto">
+        <table class="w-full border-collapse bg-white shadow-md rounded-lg">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-4 py-2 text-left">TITLE</th>
+                    <th class="px-4 py-2 text-left">CATEGORY</th>
+                    <th class="px-4 py-2 text-left">PRIORITY</th>
+                    <th class="px-4 py-2 text-left">STATUS</th>
+                    <th class="px-4 py-2 text-left">DUE DATE</th>
+                    <th class="px-4 py-2 text-left">ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Task 1 -->
+                {% for task in tasks %}
+                    <tr class="border-b">
+                        <td class="px-4 py-2">{{ task.title }}</td>
+                        <td class="px-4 py-2">{{ task.category }}</td>
+                        <td class="px-4 py-2">
+                            {% if task.priority == "high" %}
+                                <span class="px-2 py-1 text-xs font-semibold text-red-700 bg-red-200 rounded">High</span>
+                            {% elif task.priority == "medium" %}
+                                <span class="px-2 py-1 text-xs font-semibold text-yellow-700 bg-yellow-200 rounded">Medium</span>
+                            {% else %}
+                                <span class="px-2 py-1 text-xs font-semibold text-green-700 bg-green-200 rounded">Low</span>
+                            {% endif %}
+                        </td>
+                        <td class="px-4 py-2">
+                            {% if task.status == "pending" %}
+                                <span class="px-2 py-1 text-xs font-semibold text-gray-700 bg-gray-200 rounded">Pending</span>
+                            {% elif task.status == "in_progress" %}
+                                <span class="px-2 py-1 text-xs font-semibold text-blue-700 bg-blue-200 rounded">In Progress</span>
+                            {% else %}
+                                <span class="px-2 py-1 text-xs font-semibold text-green-700 bg-green-200 rounded">Completed</span>
+                            {% endif %}
+                        </td>
+                        <td class="px-4 py-2">{{ task.due_date }}</td>
+                        <td class="px-4 py-3">
+                            <a href="{% url 'edit_task' task.id %}" class="text-blue-600 hover:underline">Edit</a>
+
+                            <form action="{% url 'delete_task' task.id %}" method="POST" class="inline ml-3">
+                                {% csrf_token %}
+                                <button type="submit" class="text-red-600 hover:text-red-900"
+                                    onclick="return confirm('Are you sure you want to delete this task?');">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}

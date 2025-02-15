@@ -1,0 +1,127 @@
+[
+    {
+        "model": "toDoApp.category",
+        "pk": 1,
+        "fields": {
+            "name": "Work",
+            "description": "Work related tasks",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "toDoApp.category",
+        "pk": 2,
+        "fields": {
+            "name": "Personal",
+            "description": "Personal tasks and errands",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "toDoApp.category",
+        "pk": 3,
+        "fields": {
+            "name": "Study",
+            "description": "Learning and educational tasks",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "toDoApp.category",
+        "pk": 4,
+        "fields": {
+            "name": "Fitness",
+            "description": "Health and exercise related tasks",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "toDoApp.category",
+        "pk": 5,
+        "fields": {
+            "name": "Finance",
+            "description": "Money management tasks",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "toDoApp.task",
+        "pk": 1,
+        "fields": {
+            "title": "Complete Project Proposal",
+            "description": "Write and submit the Q1 project proposal",
+            "category": 1,
+            "priority": "high",
+            "status": "pending",
+            "due_date": "2024-01-15",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z",
+            "user": 1
+        }
+    },
+    {
+        "model": "toDoApp.task",
+        "pk": 2,
+        "fields": {
+            "title": "Gym Session",
+            "description": "1 hour workout at the gym",
+            "category": 2,
+            "priority": "medium",
+            "status": "pending",
+            "due_date": "2024-01-10",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z",
+            "user": 1
+        }
+    },
+    {
+        "model": "toDoApp.task",
+        "pk": 3,
+        "fields": {
+            "title": "Read Python Book",
+            "description": "Read and complete 2 chapters of Python programming book",
+            "category": 3,
+            "priority": "high",
+            "status": "in_progress",
+            "due_date": "2024-01-20",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z",
+            "user": 1
+        }
+    },
+    {
+        "model": "toDoApp.task",
+        "pk": 4,
+        "fields": {
+            "title": "Pay Credit Card Bill",
+            "description": "Ensure the credit card bill is paid before the deadline",
+            "category": 5,
+            "priority": "high",
+            "status": "pending",
+            "due_date": "2024-01-05",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z",
+            "user": 1
+        }
+    },
+    {
+        "model": "toDoApp.task",
+        "pk": 5,
+        "fields": {
+            "title": "Meditation",
+            "description": "Do 10 minutes of guided meditation",
+            "category": 4,
+            "priority": "low",
+            "status": "completed",
+            "due_date": "2024-01-08",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z",
+            "user": 1
+        }
+    }
+]
