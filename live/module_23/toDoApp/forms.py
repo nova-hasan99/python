@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from .models import Task
 
+
 class UserRegistrationForm(UserCreationForm):
     password1 = forms.CharField(
         widget = forms.PasswordInput(attrs = {
