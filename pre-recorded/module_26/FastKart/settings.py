@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -127,12 +132,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ..........................................................................................
 
-import os
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'    # for load any assets file like js, css
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # inside the static folder all files automecly sotre the staticfiles its need for production purpose
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'        # image save in 'media' folder
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')   # image open following this path
+
+AUTH_USER_MODEL = 'Accounts.CustomUser'   # connection with signals.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")  # 'your-email@gmail.com'
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")  # OAuth 2.0 Access Token
+
+# EMAIL_HOST_PASSWORD = os.getenv("EMAIL_ACCESS_TOKEN")  # OAuth 2.0 Access Token
