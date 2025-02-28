@@ -15,7 +15,7 @@ class UserProfile(models.Model):
     address_line_2 = models.CharField(blank=True, null=True, max_length=200)
     profile_pucture = models.ImageField(blank=True, null=True, upload_to='userprofile')
     city = models.CharField(blank=True, max_length=20)
-    sate = models.CharField(blank=True, max_length=20)
+    state = models.CharField(blank=True, max_length=20)
     country = models.CharField(blank=True, max_length=20)
     mobile = models.CharField(blank=True, null=True, max_length=15)
 
