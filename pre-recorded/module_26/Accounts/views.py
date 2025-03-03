@@ -14,6 +14,7 @@ from .models import CustomUser, UserProfile
 from django.views.decorators.csrf import csrf_exempt
 
 
+
 @login_required
 def user_dashboard(request):
     user = request.user
