@@ -24,7 +24,6 @@ class CustomSetPasswordForm(SetPasswordForm):
         model = CustomUser
         fields = ['new_password1', 'new_password2']
 
-
 class CustomUserChangeForm(UserChangeForm):
     password = None
 
