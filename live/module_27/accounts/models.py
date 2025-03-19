@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+
 class CustomUser(AbstractUser):
     email = models.CharField(unique=True)
     is_verified = models.BooleanField(default=False)
