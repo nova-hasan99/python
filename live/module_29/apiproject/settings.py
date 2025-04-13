@@ -140,6 +140,17 @@ REST_FRAMEWORK = {
         # "rest_framework.permissions.IsAuthenticated",   # its only for global authentacation
     ],
 
+    #.....................................throttling (its use for restrict to additional request)
+    "DEFAULT_THROTTLE_CLASSES": [
+    "rest_framework.throttling.AnonRateThrottle",
+    "rest_framework.throttling.UserRateThrottle",
+    ],
+    "DEFAULT_THROTTLE_RATES": {
+        "anon": "3/minute",
+        "user": "5/minute",
+    },
+
+
 }
 
 
