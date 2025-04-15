@@ -150,9 +150,7 @@ REST_FRAMEWORK = {
         "user": "5/minute",
     },
 
-
 }
-
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
