@@ -4,6 +4,7 @@ let person = {
   city: "Khulna",
 };
 
+
 for (let key in person) {
   document.write("<br>" + key + ":" + person[key]);
 }
