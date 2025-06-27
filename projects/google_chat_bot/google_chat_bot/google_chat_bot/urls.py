@@ -21,4 +21,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('chat_app.urls')),
 ]
-#  json post url needed after input

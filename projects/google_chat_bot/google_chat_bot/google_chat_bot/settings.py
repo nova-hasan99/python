@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 GEMINI_API_KEY = "AIzaSyBcX-tIfvxHUEvbMn3QMIWWvP1fKs5fVDw"
 # GEMINI_API_KEY = "AIzaSyACfLb_wcmwA_Mgh0Byg1mWqwB1yJZo1ic"
 
-
 # Application definition
 
 INSTALLED_APPS = [
