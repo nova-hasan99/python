@@ -7,7 +7,6 @@ urlpatterns = [
     path("", chat_view, name="chat"),
 ]
 
-
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
