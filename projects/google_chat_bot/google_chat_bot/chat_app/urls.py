@@ -3,7 +3,6 @@ from .views import chat_view
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     path("", chat_view, name="chat"),
 ]
