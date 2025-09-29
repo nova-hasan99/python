@@ -7,6 +7,7 @@ for (let key in person) {
   document.write("<br>" + key + ":" + person[key]);
 }
 
+
 //.............................................automecly call this function
 const api = (function () {
   const apiKey = "XXXOIJOIER665465SDD";
