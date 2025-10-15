@@ -14,7 +14,6 @@ chat = model.start_chat(
         {"role": "model", "parts": "Great to meet you. What would you like to know?"},
     ]
 )
-
 def chat_view(request):
     if request.method == "POST":
         user_message = request.POST.get("message", "")
