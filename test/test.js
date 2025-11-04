@@ -7,7 +7,6 @@ for (let key in person) {
   document.write("<br>" + key + ":" + person[key]);
 }
 
-
 //.............................................automecly call this function
 const api = (function () {
   const apiKey = "XXXOIJOIER665465SDD";
@@ -54,3 +53,4 @@ function factorial_loop(n) {
   return result;
 }
 console.log(factorial_loop(5));
+// everyting is same but the way of writing is different
