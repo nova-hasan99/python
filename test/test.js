@@ -53,4 +53,3 @@ function factorial_loop(n) {
   return result;
 }
 console.log(factorial_loop(5));
-// everyting is same but the way of writing is different

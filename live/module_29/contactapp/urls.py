@@ -14,3 +14,4 @@ urlpatterns = [
 ]
 
 
+# siglent DSOX2024A
