@@ -12,6 +12,3 @@ urlpatterns = [
     path("", include(router.urls)),
     path("login/", TokenObtainPairView.as_view(), name="login"),
 ]
-
-
-# siglent DSOX2024A
