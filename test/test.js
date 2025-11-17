@@ -53,3 +53,5 @@ function factorial_loop(n) {
   return result;
 }
 console.log(factorial_loop(5));
+
+ // ...........................................function as a parameter
