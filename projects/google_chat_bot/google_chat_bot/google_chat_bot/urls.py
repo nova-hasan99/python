@@ -22,7 +22,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('chat_app.urls')),
 ]
-
-
-
-# Explain this code line by line. For each line infer what it wants to achieve and how it fits into the big picture.
