@@ -22,3 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('chat_app.urls')),
 ]
+
+# End of google_chat_bot/urls.py
