@@ -12,3 +12,5 @@ urlpatterns = [
     path("", include(router.urls)),
     path("login/", TokenObtainPairView.as_view(), name="login"),
 ]
+
+# End of file
