@@ -33,6 +33,3 @@ for n in range(10):
         continue
     print(n)
 
-
-
-# while loop
