@@ -92,3 +92,5 @@ class LoginForm(AuthenticationForm):
         cleaned_data["username"] = user.username 
         return cleaned_data
     
+
+# class UpdateStudentForm(forms.ModelForm):
