@@ -55,3 +55,5 @@ class Student(models.Model):
     def __str__(self):
         return self.name
     
+    
+    # Override the save method to ensure photo is required during updates
