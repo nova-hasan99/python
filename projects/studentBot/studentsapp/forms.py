@@ -92,3 +92,4 @@ class LoginForm(AuthenticationForm):
         cleaned_data["username"] = user.username 
         return cleaned_data
     
+    # Override the default error message for invalid login
