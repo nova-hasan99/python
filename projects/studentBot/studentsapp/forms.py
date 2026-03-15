@@ -92,4 +92,4 @@ class LoginForm(AuthenticationForm):
         cleaned_data["username"] = user.username 
         return cleaned_data
     
-
+# Example of a simple function to demonstrate loops and conditionals
