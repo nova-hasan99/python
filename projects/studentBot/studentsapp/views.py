@@ -230,7 +230,8 @@ class UserLoginView(LoginView):
     
     
 
-    
+    # def get_success_url(self):
+    #     return self.success_url
 
         
         
