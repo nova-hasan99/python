@@ -56,5 +56,5 @@ class Student(models.Model):
         return self.name
     
     
-    # Override the save method to ensure photo is required during updates
+
     
