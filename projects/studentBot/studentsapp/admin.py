@@ -13,3 +13,4 @@ class StudentAdmin(admin.ModelAdmin):
         obj.save()
 
 admin.site.register(Student, StudentAdmin)
+# Register your models here.

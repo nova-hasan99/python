@@ -92,6 +92,3 @@ class LoginForm(AuthenticationForm):
         cleaned_data["username"] = user.username 
         return cleaned_data
     
-    
-    # def clean(self):
-    #     cleaned_data = super().clean()
