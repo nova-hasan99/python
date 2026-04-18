@@ -15,3 +15,5 @@ plt.title('No-Load Characteristics of a DC Shunt Generator', fontsize=14)
 plt.grid(True, linestyle='--', alpha=0.7)
 plt.legend()
 plt.show()
+
+# The graph shows the relationship between the field current and the generated voltage of a DC shunt generator under no-load conditions. As the field current increases, the generated voltage also increases, demonstrating the characteristic behavior of the generator.
