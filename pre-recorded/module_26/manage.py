@@ -21,5 +21,4 @@ def main():
 if __name__ == '__main__':
     main()
     
-    # `python manage.py runserver` - This command starts the Django development server, allowing you to access your application in a web browser at http://     
 
