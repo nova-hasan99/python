@@ -16,4 +16,3 @@ plt.grid(True, linestyle='--', alpha=0.7)
 plt.legend()
 plt.show()
 
-# This code creates a plot of the no-load characteristics of a DC shunt generator, showing how the generated voltage (E) varies with the field current (If). The data points are connected with a line for better visualization.

@@ -10,4 +10,3 @@ name = "pypi"
 [requires]
 python_version = "3.12"
 
-# This is a Pipfile for a Python project. It specifies the source of packages (PyPI), the required Python version (3.12), and currently has no listed packages or development packages. The commented line suggests that the project may involve running a Django development server, but no specific dependencies are listed in this Pipfile.
