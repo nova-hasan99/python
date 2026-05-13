@@ -20,5 +20,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-# This file is used to run the Django development server and perform other administrative tasks.
-# It sets the default settings module for the Django project and executes command-line arguments.
