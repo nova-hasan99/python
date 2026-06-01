@@ -10,3 +10,6 @@ name = "pypi"
 [requires]
 python_version = "3.12"
 
+
+# To install the dependencies, run:
+# pipenv install --dev
