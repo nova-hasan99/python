@@ -21,4 +21,3 @@ def main():
 if __name__ == '__main__':
     main()
    
-   # This file is used to run the Django development server and manage other administrative tasks for the FastKart project. You can use it to start the server, create database migrations, and perform other management commands.
