@@ -10,4 +10,4 @@ name = "pypi"
 [requires]
 python_version = "3.12"
 
-
+# This file is used to specify the dependencies for the Django project. It is managed by pipenv and should not be edited manually.
