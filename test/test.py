@@ -15,3 +15,5 @@ plt.title('No-Load Characteristics of a DC Shunt Generator', fontsize=14)
 plt.grid(True, linestyle='--', alpha=0.7)
 plt.legend()
 plt.show()
+
+# output: A graph showing the relationship between field current and generated voltage for a DC shunt generator.
