@@ -21,4 +21,4 @@ def main():
 if __name__ == '__main__':
     main()
    
-# 
+# manage.py is a command-line utility that allows you to interact with this Django project in various ways. You can read more about it in the Django documentation: https://docs.djangoproject.com/en/4.2/ref/django-admin/

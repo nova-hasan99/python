@@ -12,4 +12,3 @@ python_version = "3.12"
 
 # o --- IGNORE ---  
 
-# setup.py file is not required for this project, but if you want to create one, you can use the following template:
