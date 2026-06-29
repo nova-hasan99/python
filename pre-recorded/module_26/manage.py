@@ -21,4 +21,4 @@ def main():
 if __name__ == '__main__':
     main()
    
-# manage.py is a command-line utility that allows you to interact with this Django project in various ways. You can read more about it in the Django documentation: https://docs.djangoproject.com/en/4.2/ref/django-admin/
+# This script is the entry point for Django's command-line utility. It sets the default settings module for the Django project and attempts to import the necessary management functions. If Django is not installed or cannot be found, it raises an ImportError with a helpful message. Finally, it executes the command-line arguments passed to the script.

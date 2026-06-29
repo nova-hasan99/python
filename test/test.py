@@ -16,4 +16,4 @@ plt.grid(True, linestyle='--', alpha=0.7)
 plt.legend()
 plt.show()
 
-# output: The code will generate a plot showing the relationship between the field current and the generated voltage of a DC shunt generator. The x-axis represents the field current in amperes, while the y-axis represents the generated voltage in volts. The plot will include markers for each data point and a line connecting them, along with grid lines for better readability.
+# 
