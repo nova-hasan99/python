@@ -12,4 +12,3 @@ python_version = "3.12"
 
 # o --- IGNORE ---  
 
-# This file is used to specify the dependencies for a Python project using Pipenv. The `[[source]]` section defines the package index to use, which is PyPI in this case. The `[packages]` section lists the packages required for the project, while `[dev-packages]` lists packages needed for development purposes. The `[requires]` section specifies the Python version required for the project.
