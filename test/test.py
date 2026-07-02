@@ -16,4 +16,5 @@ plt.grid(True, linestyle='--', alpha=0.7)
 plt.legend()
 plt.show()
 
-# you can run this code in a Python environment with Matplotlib installed to visualize the no-load characteristics of a DC shunt generator based on the provided data.
+# print the data points for verification
+print("Field Current (If) [A]:", field_current) 

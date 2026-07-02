@@ -21,3 +21,4 @@ def main():
 if __name__ == '__main__':
     main()
    
+# optional: You can add a test function to verify the data points
