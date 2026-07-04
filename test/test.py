@@ -16,6 +16,12 @@ def validate_measurements(field_current, generated_voltage):
     if len(field_current) < 2:
         raise ValueError("At least two measurements are required.")
 
+    if any(current < 0 for current in field_current):
+        raise ValueError("Field current values cannot be negative.")
+
+    if any(voltage < 0 for voltage in generated_voltage):
+        raise ValueError("Generated voltage values cannot be negative.")
+
     for previous, current in zip(field_current, field_current[1:]):
         if current <= previous:
             raise ValueError("Field current values must be in strictly increasing order.")
