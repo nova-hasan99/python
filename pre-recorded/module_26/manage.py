@@ -21,3 +21,4 @@ def main():
 if __name__ == '__main__':
     main()
    
+# please run the project using the command: python manage.py runserver

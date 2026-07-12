@@ -106,3 +106,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# note: To run the project, use the command: python manage.py runserver

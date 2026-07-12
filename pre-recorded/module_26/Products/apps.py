@@ -6,3 +6,4 @@ class ProductsConfig(AppConfig):
     name = 'Products'
     verbose_name = 'Products'
 
+# work for the products app
