@@ -12,4 +12,4 @@ python_version = "3.12"
 
 # o --- IGNORE ---  
 
-# to run the project, use the command: python manage.py runserver
+

@@ -107,4 +107,9 @@ def main():
 if __name__ == "__main__":
     main()
 
-# note: To run the project, use the command: python manage.py runserver
+# sample output:
+# DC Shunt Generator No-Load Analysis
+# Minimum voltage: 182 V
+# Maximum voltage: 207 V
+# Voltage gain: 25 V
+# Average slope: 83.33 V/A
