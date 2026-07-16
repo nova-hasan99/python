@@ -107,9 +107,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-# sample output:
-# DC Shunt Generator No-Load Analysis
-# Minimum voltage: 182 V
-# Maximum voltage: 207 V
-# Voltage gain: 25 V
-# Average slope: 83.33 V/A
