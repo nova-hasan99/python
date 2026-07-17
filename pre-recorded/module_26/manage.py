@@ -21,5 +21,5 @@ def main():
 if __name__ == '__main__':
     main()
    
-   ## To run the Django development server, use the following command:
-   ## python manage.py runserver
+   
+   # what happens if i make a change to the manage.py file
