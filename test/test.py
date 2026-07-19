@@ -107,5 +107,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-# is this code correct
-Yes, the code appears to be correct. It defines functions to validate measurements, estimate voltage using

@@ -22,4 +22,3 @@ if __name__ == '__main__':
     main()
    
    
-   # what happens if i make a change to the manage.py file
