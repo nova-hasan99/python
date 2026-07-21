@@ -107,3 +107,4 @@ def main():
 if __name__ == "__main__":
     main()
 
+# just a comment to indicate that this script is intended to be run as a standalone program
