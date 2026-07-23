@@ -6,4 +6,3 @@ class ProductsConfig(AppConfig):
     name = 'Products'
     verbose_name = 'Products'
 
-# you can add additional configuration options here if needed, such as custom signals or model registration.
