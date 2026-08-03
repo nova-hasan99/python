@@ -7,4 +7,3 @@ class ProductsConfig(AppConfig):
     verbose_name = 'Products'
 
 
-# https://docs.djangoproject.com/en/4.2/ref/applications/#django.apps.AppConfig.verbose_name

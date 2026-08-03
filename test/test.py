@@ -109,4 +109,11 @@ if __name__ == "__main__":
 
 
 
-# python test/test.py
+# sample output:
+# DC Shunt Generator No-Load Analysis
+# Minimum voltage: 182 V
+# Maximum voltage: 207 V
+# Voltage gain: 25 V
+# Average slope: 5.00 V/A
+# Estimated voltage at 0.25 A: 189.50 V
+# Chart saved to: dc_shunt_generator_curve.png
