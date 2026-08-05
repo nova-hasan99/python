@@ -22,5 +22,3 @@ if __name__ == '__main__':
     main()
    
    
-# output:
-# (venv) E:\Developer Hub\django\python>python manage.py runserver
