@@ -25,5 +25,5 @@ if __name__ == '__main__':
 # with open("test/test.py", "r") as file:
 #     content = file.read()
 # generated_code = content.split("# --- IGNORE ---")[0] 
-# the generated_code variable now contains the code from test/test.py up to the "# --- IGNORE ---" line. You can use this variable as needed in your script.
 
+# class ProductsConfig(AppConfig):
