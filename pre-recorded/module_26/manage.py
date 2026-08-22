@@ -26,4 +26,5 @@ if __name__ == '__main__':
 #     content = file.read()
 # generated_code = content.split("# --- IGNORE ---")[0] 
 
-# class ProductsConfig(AppConfig):
+# print(f"Voltage gain: {summary['voltage_gain']} V")
+# print(f"Average slope: {summary['average_slope']:.2f} V    

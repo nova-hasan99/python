@@ -115,7 +115,7 @@ if __name__ == "__main__":
 # print("DC Shunt Generator No-Load Analysis")
 # print(f"Minimum voltage: {summary['minimum_voltage']} V")
 # print(f"Maximum voltage: {summary['maximum_voltage']} V")
-# print(f"Voltage gain: {summary['voltage_gain']} V")
-# print(f"Average slope: {summary['average_slope']:.2f} V       
+
+# class ProductsConfig(AppConfig):   
 
 
