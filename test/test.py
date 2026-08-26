@@ -116,6 +116,6 @@ if __name__ == "__main__":
 # print(f"Minimum voltage: {summary['minimum_voltage']} V")
 # print(f"Maximum voltage: {summary['maximum_voltage']} V")
 
-# class ProductsConfig(AppConfig):   
+
 
 
