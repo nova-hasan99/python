@@ -113,9 +113,9 @@ if __name__ == "__main__":
 # estimated_voltage = estimate_voltage(FIELD_CURRENT, GENERATED_VOLTAGE, 0.25)
 # output_file = plot_characteristic(FIELD_CURRENT, GENERATED_VOLTAGE)
 # print("DC Shunt Generator No-Load Analysis")
-# print(f"Minimum voltage: {summary['minimum_voltage']} V")
-# print(f"Maximum voltage: {summary['maximum_voltage']} V")
 
+
+# my suggestion: The code in the `ProductsConfig` class looks good. If you want to add more functionality or configurations, you can do so by overriding methods like `ready()` or adding additional attributes. For example, if you want to perform some initialization when the app is ready, you can override the `ready()` method:
 
 
 

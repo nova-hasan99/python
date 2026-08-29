@@ -25,6 +25,6 @@ if __name__ == '__main__':
 # with open("test/test.py", "r") as file:
 #     content = file.read()
 # generated_code = content.split("# --- IGNORE ---")[0] 
-
-# print(f"Voltage gain: {summary['voltage_gain']} V")
+ # print(f"Minimum voltage: {summary['minimum_voltage']} V")
+# print(f"Maximum voltage: {summary['maximum_voltage']} V")
     
