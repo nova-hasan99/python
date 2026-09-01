@@ -10,6 +10,5 @@ class ProductsConfig(AppConfig):
 # additional context: This is a recently edited file. Do not suggest code that has been deleted.
  # print(f"Minimum voltage: {summary['minimum_voltage']} V")
 # print(f"Maximum voltage: {summary['maximum_voltage']} V")
-    #
-# print(f"Voltage gain: {summary['voltage_gain']} V")
+
 
