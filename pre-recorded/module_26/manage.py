@@ -25,4 +25,6 @@ if __name__ == '__main__':
 # with open("test/test.py", "r") as file:
 #     content = file.read()
 # generated_code = content.split("# --- IGNORE ---")[0] 
-# this is the physisiona test for this function.
+# with open("test/test.py", "w") as file:
+#     file.write(generated_code)
+# keep the code above as it is, it is used to remove the test code from the test.py file after running the tests.
