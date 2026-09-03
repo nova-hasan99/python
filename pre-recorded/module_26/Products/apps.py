@@ -12,6 +12,5 @@ class ProductsConfig(AppConfig):
 # print(f"Maximum voltage: {summary['maximum_voltage']} V")
 # print(f"Voltage gain: {summary['voltage_gain']} V")
 # print(f"Average slope: {summary['average_slope']:.2f} V/A")
-# print(f"Estimated voltage at 0.25 A: {estimated_voltage:.2f} V")
-# print(f"Chart saved to: {output_file}")
+# keep the code above as it is, it is used to remove the test code from the test.py file after running the tests.
 
