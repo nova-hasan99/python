@@ -27,4 +27,4 @@ if __name__ == '__main__':
 # generated_code = content.split("# --- IGNORE ---")[0] 
 # with open("test/test.py", "w") as file:
 #     file.write(generated_code)
-# my suggestion: The code in the `ProductsConfig` class looks good. If you want to add more functionality or configurations, you can do so by overriding methods like `ready()` or adding additional attributes. For example, if you want to perform some initialization when the app is ready, you can override the `ready()` method:
+# keep the code above as it is, it is used to remove the test code from the test.py file after running the tests.

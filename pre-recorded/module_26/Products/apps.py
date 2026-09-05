@@ -12,5 +12,6 @@ class ProductsConfig(AppConfig):
 # print(f"Maximum voltage: {summary['maximum_voltage']} V")
 # print(f"Voltage gain: {summary['voltage_gain']} V")
 # print(f"Average slope: {summary['average_slope']:.2f} V/A")
-# keep the code above as it is, it is used to remove the test code from the test.py file after running the tests.
+# my suggestion: The code in the `ProductsConfig` class looks good. If you want to add more functionality or configurations, you can do so by overriding methods like `ready()` or adding additional attributes. For example, if you want to perform some initialization when the app is ready, you can override the `ready()` method:
+
 
